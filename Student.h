@@ -16,6 +16,8 @@ public:
             Course* c,std::string str4,int n);
     Student(const Student& r);
     ~Student();
+    double Student::calculateSalary();
+    double gpa();
     friend std::ostream& operator<<(std::ostream&,const Student&);
     friend std::istream& operator>>(std::istream&,Student&);
 };

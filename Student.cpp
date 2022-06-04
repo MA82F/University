@@ -7,7 +7,7 @@ Student::Student(string str1,string str2,string str3,double* w,Course* c,
         cout<<"invalid id";
         exit(0);
     }
-    courses = new Course("none",0,new double);
+    courses = new Course("none",0,new double)(n);
     *courses = *c;
     fieldOfStudy = str4;
     numOfCourses = n;
@@ -19,6 +19,7 @@ Student::Student(const Student& r):Person(*this){
     *courses = *(r.courses);
 }
 Student::~Student(){courses->~Course();}
+//int Student::getNumOfCourses(){return numOfCourses;}
 ostream& operator<<(std::ostream& out,const Student& r){
     out<<"Firstname:"<<r.firstName<<endl;
     out<<"Lastname:"<<r.lastName<<endl;
@@ -89,4 +90,21 @@ bool validate(string str){
                 return 0;
     }
     return 1;  
+}
+double Student::gpa(){
+    double score=0;
+    int units=0;
+    for (int i = 0; i < numOfCourses; i++){
+        score += (*courses[i].getMark())*(courses[i].getUnit());
+        units += courses[i].getUnit();
+    }
+    return (score/units);
+}
+double Student::calculateSalary(){
+    double salary=0;
+    salary *=(*workHours)*20000;
+    if (this->gpa()>17){
+        salary = salary + 0.1*salary;
+    }
+    return salary;
 }
