@@ -16,15 +16,11 @@ public:
     std::string getName();
     int getUnit();
     double* getMark();
+    void setName(std::string str);
+    void setUnit(int u);
+    void setMark(double* m);
     friend std::ostream& operator<<(std::ostream&,const Course&);
     friend std::istream& operator>>(std::istream&,Course&);
-    virtual void fall();
-    void setPosition(double x, double y);
-    void move(const double& x,const double& y);
-    double getX() const;
-    double getY() const;
-    bool isInPit(double x, double y , double r) const;
 };
-
 
 #endif //COURSE_H
