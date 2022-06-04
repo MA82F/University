@@ -4,6 +4,10 @@ using namespace std;
 Person::Person(string str1,string str2,string str3,double* w)
     :firstName(str1),lastName(str2),id(str3),workHours(w){
         workHours = new double;
+        if (validate(id)==0){
+            cout<<"invalid id";
+            exit(0);
+        }
 }
 Person::Person(const Person& r){
     firstName = r.firstName;
@@ -81,4 +85,8 @@ bool validate(string str){
                 return 0;
     }
     return 1;  
+}
+double calculateSalary(double salaryHours){
+    salaryHours *=10000;
+    return salaryHours;
 }
