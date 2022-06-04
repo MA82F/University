@@ -5,7 +5,7 @@
 #include <string.h>
 
 class Person{
-private:
+protected:
     std::string firstName;
     std::string lastName;
     std::string id;
