@@ -21,8 +21,8 @@ public:
     void setFirstName(std::string str);
     void setLastName(std::string str);
     void setId(std::string str);
-    void setWorkHours(double* m);
-    Person operator =(const Person&);
+    void setWorkHours(double* w);
+    Person& operator =(const Person&);
     friend std::ostream& operator<<(std::ostream&,const Person&);
     friend std::istream& operator>>(std::istream&,Person&);
 };
