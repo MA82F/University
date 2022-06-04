@@ -48,3 +48,37 @@ istream& operator>>(std::istream& in,Person& r){
     cout<<endl;
     return in;
 }
+bool validate(string str){
+    if (!(str.length()>=8 && str.length()<=10))
+        return 0;
+    if (!(stoi(str.substr(0,1))>84 && stoi(str.substr(0,1))<=99)) //between 84 to 00
+        return 0;
+    if (str.length()==10){
+        for (int i = 2; i <= 4; i++)
+            if (isdigit(str[i]))
+                return 0;
+        for (int i = 5; i <= str.length(); i++)
+            if (!(str[i]=='0' || str[i]=='1' || str[i]=='2' || str[i]=='3' ||
+                str[i]=='7' || str[i]=='8' || str[i]=='9'))
+                return 0;
+    }
+    if (str.length()==9){
+        for (int i = 2; i <= 3; i++)
+            if (isdigit(str[i]))
+                return 0;
+        for (int i = 4; i <= str.length(); i++)
+            if (!(str[i]=='0' || str[i]=='1' || str[i]=='2' || str[i]=='3' ||
+                str[i]=='7' || str[i]=='8' || str[i]=='9'))
+                return 0;
+        
+    }
+    if (str.length()==8){
+        if(isdigit(str[2]))
+                return 0;
+        for (int i = 3; i <= str.length(); i++)
+            if (!(str[i]=='0' || str[i]=='1' || str[i]=='2' || str[i]=='3' ||
+                str[i]=='7' || str[i]=='8' || str[i]=='9'))
+                return 0;
+    }
+    return 1;  
+}
