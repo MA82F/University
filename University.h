@@ -9,14 +9,20 @@ private:
     int budget;
     int numOfProfessors;
     int numOfStudents;
-    Professor* professors;
+    Professor* professor;
     Student* Students;
 public:
-    // University(std::string str1,std::string str2,std::string str3,double* w,std::string t);
-    // bool validate(std::string str);
-    // double Professor::calculateSalary();
-    // friend std::ostream& operator<<(std::ostream&,const Professor&);
-    // friend std::istream& operator>>(std::istream&,Professor&);
+    University(int b,int np,int ns,Professor* p,Student* s);
+    University(const University& r);
+    ~University();
+    double averageGpa();
+    double averageGpaOfField(std::string str);
+    double averageMarkOfCourse(std::string str);
+    double printCourses(std::string str);
+    bool isEnoughBudget();
+    void saveToFile();
+    friend std::ostream& operator<<(std::ostream&,const University&);
+    friend std::istream& operator>>(std::istream&,University&);
 };
 
 #endif //PROFESSOR_H
