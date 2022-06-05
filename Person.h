@@ -12,6 +12,7 @@ protected:
     double* workHours;
 public:
     Person(std::string str1,std::string str2,std::string str3,double* w);
+    Person();
     Person(const Person& r);
     ~Person();
     std::string getFirstName();

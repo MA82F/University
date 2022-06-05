@@ -2,6 +2,7 @@
 #include "Course.h"
 using namespace std;
 Course::Course(string str,int u,double* m):name(str),unit(u),mark(m){mark=new double;}
+Course::Course(){mark=new double;}
 Course::Course(const Course& r){
     name = r.name;
     unit = r.unit;

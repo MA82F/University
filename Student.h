@@ -14,8 +14,10 @@ private:
 public:
     Student(std::string str1,std::string str2,std::string str3,double* w,
             Course* c,std::string str4,int n);
+    Student();
     Student(const Student& r);
     ~Student();
+    string getFieldOfStudy();
     double Student::calculateSalary();
     double gpa();
     friend std::ostream& operator<<(std::ostream&,const Student&);

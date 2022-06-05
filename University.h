@@ -1,5 +1,5 @@
-#ifndef PROFESSOR_H
-#define PROFESSOR_H
+#ifndef UNIVERSITY_H
+#define UNIVERSITY_H
 
 #include "Professor.h"
 #include "Student.h"
@@ -9,8 +9,8 @@ private:
     int budget;
     int numOfProfessors;
     int numOfStudents;
-    Professor* professor;
-    Student* Students;
+    Professor* profs;
+    Student* stus;
 public:
     University(int b,int np,int ns,Professor* p,Student* s);
     University(const University& r);
@@ -25,4 +25,4 @@ public:
     friend std::istream& operator>>(std::istream&,University&);
 };
 
-#endif //PROFESSOR_H
+#endif //UNIVERSITY_H

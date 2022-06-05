@@ -8,6 +8,7 @@ Professor::Professor(string str1,string str2,string str3,double* w,string t)
         exit(0);
     }
 }
+Professor::Professor(){}//string str1,string str2,string str3,double* w,string t}
 ostream& operator<<(std::ostream& out,const Professor& r){
     out<<"Firstname:"<<r.firstName<<endl;
     out<<"Lastname:"<<r.lastName<<endl;
@@ -59,5 +60,7 @@ double Professor::calculateSalary(){
     if (this->title=="Professor"){
         salary = salary + 30000;
     }
+    int a= 99- stoi(id.substr(0,1));
+    salary += a*2000*(*workHours);
     return salary;
 }

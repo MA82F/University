@@ -8,6 +8,7 @@ private:
     std::string title;
 public:
     Professor(std::string str1,std::string str2,std::string str3,double* w,std::string t);
+    Professor();
     bool validate(std::string str);
     double Professor::calculateSalary();
     friend std::ostream& operator<<(std::ostream&,const Professor&);

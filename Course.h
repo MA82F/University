@@ -11,6 +11,7 @@ private:
     double* mark;
 public:
     Course(std::string str,int u,double* m);
+    Course();
     Course(const Course& r);
     ~Course();
     std::string getName();

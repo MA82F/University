@@ -7,19 +7,26 @@ Student::Student(string str1,string str2,string str3,double* w,Course* c,
         cout<<"invalid id";
         exit(0);
     }
-    courses = new Course("none",0,new double)(n);
-    *courses = *c;
+    courses =new Course[n];
+    for (int i = 0; i < n; i++){
+        courses[i] = c[i];
+    }
     fieldOfStudy = str4;
     numOfCourses = n;
 }
+Student::Student(){}
 Student::Student(const Student& r):Person(*this){
     fieldOfStudy = r.fieldOfStudy;
     numOfCourses = r.numOfCourses;
     courses = new Course("none",0,new double);
-    *courses = *(r.courses);
+     for (int i = 0; i < numOfCourses; i++){
+        courses[i] = r.courses[i];
+    }
 }
 Student::~Student(){courses->~Course();}
-//int Student::getNumOfCourses(){return numOfCourses;}
+string Student::getFieldOfStudy(){
+    return fieldOfStudy;
+}
 ostream& operator<<(std::ostream& out,const Student& r){
     out<<"Firstname:"<<r.firstName<<endl;
     out<<"Lastname:"<<r.lastName<<endl;
@@ -51,6 +58,7 @@ istream& operator>>(std::istream& in,Student& r){
     cout<<"Number Of Courses:";
     in>>r.numOfCourses;
     cout<<endl;
+    r.courses = new Course[r.numOfCourses];
     for (int i = 0; i < r.numOfCourses; i++){
         cout<<"Course"<<1+i<<":";
         in>>r.courses[i];

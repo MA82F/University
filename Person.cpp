@@ -9,6 +9,7 @@ Person::Person(string str1,string str2,string str3,double* w)
             exit(0);
         }
 }
+Person::Person(){workHours = new double;}
 Person::Person(const Person& r){
     firstName = r.firstName;
     lastName = r.lastName;
