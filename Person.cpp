@@ -1,7 +1,7 @@
 #include <cmath>
 #include "Person.h"
 using namespace std;
-Person::Person(string str1,string str2,string str3,double* w)
+Person::Person(string str1,string str2,string str3,double* w=0)
     :firstName(str1),lastName(str2),id(str3),workHours(w){
         workHours = new double;
         if (validate(id)==0){

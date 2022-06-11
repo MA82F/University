@@ -9,10 +9,10 @@ private:
     int budget;
     int numOfProfessors;
     int numOfStudents;
-    Professor* profs;
-    Student* stus;
+    Professor** profs;
+    Student** stus;
 public:
-    University(int b,int np,int ns,Professor* p,Student* s);
+    University(int b,int np,int ns,Professor** pr,Student** st);
     University(const University& r);
     ~University();
     double averageGpa();
@@ -22,7 +22,7 @@ public:
     bool isEnoughBudget();
     void saveToFile();
     friend std::ostream& operator<<(std::ostream&,const University&);
-    friend std::istream& operator>>(std::istream&,University&);
+    // friend std::istream& operator>>(std::istream&,University&);
 };
 
 #endif //UNIVERSITY_H

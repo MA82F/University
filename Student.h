@@ -2,7 +2,7 @@
 #define STUDENT_H
 
 //#include <iostream>
-//#include <string.h>
+#include <string.h>
 #include "Person.h"
 #include "Course.h"
 
@@ -17,9 +17,13 @@ public:
     Student();
     Student(const Student& r);
     ~Student();
-    string getFieldOfStudy();
-    double Student::calculateSalary();
+    std::string getFieldOfStudy();
+    std::string getCourseName(int);
+    double getCourseMark(int);
+    int getNumOfCourse();
+    double calculateSalary();
     double gpa();
+    bool validate(std::string str);
     friend std::ostream& operator<<(std::ostream&,const Student&);
     friend std::istream& operator>>(std::istream&,Student&);
 };

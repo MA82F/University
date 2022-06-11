@@ -10,7 +10,7 @@ private:
     int unit;
     double* mark;
 public:
-    Course(std::string str,int u,double* m);
+    Course(std::string str,int u);
     Course();
     Course(const Course& r);
     ~Course();

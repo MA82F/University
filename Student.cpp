@@ -18,15 +18,19 @@ Student::Student(){}
 Student::Student(const Student& r):Person(*this){
     fieldOfStudy = r.fieldOfStudy;
     numOfCourses = r.numOfCourses;
-    courses = new Course("none",0,new double);
+    courses = new Course[r.numOfCourses];
      for (int i = 0; i < numOfCourses; i++){
         courses[i] = r.courses[i];
     }
 }
 Student::~Student(){courses->~Course();}
-string Student::getFieldOfStudy(){
-    return fieldOfStudy;
-}
+string Student::getFieldOfStudy(){return fieldOfStudy;}
+string Student::getCourseName(int a){
+    // string temp=;
+    return (courses[a].getName());}
+double Student::getCourseMark(int a){
+    return *(courses[a].getMark());}
+int Student::getNumOfCourse(){return numOfCourses;}
 ostream& operator<<(std::ostream& out,const Student& r){
     out<<"Firstname:"<<r.firstName<<endl;
     out<<"Lastname:"<<r.lastName<<endl;
@@ -66,7 +70,7 @@ istream& operator>>(std::istream& in,Student& r){
     cout<<endl;
     return in;
 }
-bool validate(string str){
+bool Student::validate(string str){
     if (!(str.length()>=8 && str.length()<=10))
         return 0;
     if (!(stoi(str.substr(0,1))>84 && stoi(str.substr(0,1))<=99)) //between 84 to 00
