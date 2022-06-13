@@ -1,4 +1,3 @@
-#include <cmath>
 #include "Student.h"
 using namespace std;
 Student::Student(string str1,string str2,string str3,double* w,Course* c,

@@ -9,10 +9,10 @@ private:
     int budget;
     int numOfProfessors;
     int numOfStudents;
-    Professor** profs;
-    Student** stus;
+    Professor* profs;
+    Student* stus;
 public:
-    University(int b,int np,int ns,Professor** pr,Student** st);
+    University(int b,int np,int ns,Professor* pr,Student* st);
     University(const University& r);
     ~University();
     double averageGpa();
