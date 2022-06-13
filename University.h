@@ -22,7 +22,7 @@ public:
     bool isEnoughBudget();
     void saveToFile();
     friend std::ostream& operator<<(std::ostream&,const University&);
-    // friend std::istream& operator>>(std::istream&,University&);
+    friend std::istream& operator>>(std::istream&,University&);
 };
 
 #endif //UNIVERSITY_H

@@ -1,4 +1,3 @@
-#include <cmath>
 #include <fstream>
 #include "University.h"
 using namespace std;
@@ -89,7 +88,7 @@ bool University::isEnoughBudget(){
 void University::saveToFile(){
     ofstream myfile;
     myfile.open ("save.txt");
-    int array[numOfStudents]={0};
+    int array[numOfStudents];
     int n=0;
     for (int i = 0; i < numOfStudents; i++){
         for (int j = i+1; j < numOfStudents; j++){
@@ -152,6 +151,12 @@ ostream& operator<<(ostream& out,const University& r){
     }
     return out;
 }
-// istream& operator>>(istream& in,University& r){
-
-// }
+ istream& operator>>(istream& in,University& r){
+    std::cout<<"Budget: ";
+    in>>r.budget;
+    std::cout<<"numOfStudents: ";
+    in>>r.numOfStudents;
+    std::cout<<"numOfProfessors: ";
+    in>>r.numOfProfessors;
+    return in;
+ }
