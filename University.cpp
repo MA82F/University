@@ -65,15 +65,48 @@ double University::averageMarkOfCourse(std::string str){
     }
     return (aveGpaCourse/num);
 }
-// double University::printCourses(std::string str){
-//     for (int i = 0; i < num; i++)////////////////
-//     {////////////////////////////
-//         /* code *//////////////////
-//     }////////////
-//     ///////////////////////////////
-// }//////////////////////////
+ double University::printCourses(){
+      int a=0;
+      for (int i = 0; i < numOfStudents; ++i) {
+        a+= this->stus[i].getNumOfCourse();
+      }
+      string courseArray[a];
+      double markArray[a];
+      double sum[10]={0};
+      int n[10]={0};
+     for (int i = 0; i < numOfStudents; i++){
+       for (int j = 0; j < stus[i].getNumOfCourse(); ++j) {
+         courseArray[i] = this->stus->getCourseName(i);
+         markArray[i] = this->stus->getCourseMark(i);
+       }
+     }
+     for (int i = 0; i < a; ++i) {
+       for (int j = 1; j < a-1; ++j) {
+         if (courseArray[i] == courseArray[j]){
+            sum[i] = sum[i] + markArray[i]+markArray[j];
+            n[i]+=2;
+         }
+       }
+     }
+     for (int i = 0; i < 10; ++i) {
+       sum[i]= sum[i]/n[i];
+     }
+     for (int i = 0; i < a; i++) {
+       for (int j = i + 1; j < a; j++) {
+         if (sum[i]<sum[j] && sum[i]!=0 && sum[j]!=0){
+           swap(sum[i],sum[j]);
+           //swap(n[i],n[j]);
+           swap(courseArray[i],courseArray[j]);
+           //swap(markArray[i],markArray[j]);
+         }
+       }
+     }
+     for (int i = 0; i < a; ++i) {
+       cout<< courseArray[i] <<":"<<sum[i]<<endl;
+     }
+ }
 bool University::isEnoughBudget(){
-    int salaries = 0;
+    double salaries = 0;
     for (int i = 0; i < numOfStudents; i++){
         salaries += stus[i].calculateSalary();
     }

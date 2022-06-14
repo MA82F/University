@@ -18,7 +18,7 @@ public:
     double averageGpa();
     double averageGpaOfField(std::string str);
     double averageMarkOfCourse(std::string str);
-    double printCourses(std::string str);
+    double printCourses();
     bool isEnoughBudget();
     void saveToFile();
     friend std::ostream& operator<<(std::ostream&,const University&);
